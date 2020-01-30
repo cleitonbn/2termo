@@ -1,0 +1,28 @@
+Exercício 12- Erro de camada 3-Rede. O endereço de IP do servidor DNS no PC2 estava diferente do endereço que corresponde ao endereço do Servidor DNS o que estava fazendo com que o PC2 não conseguisse se comunicar com o Servidor DNS. Para resolução do problema foi alterado o endereço do Servidor DNS no PC2 para "20.0.0.10".
+
+
+Exercício 13 - Erro de camada 3-Rede. As rotas configuradas no Roteador 1 estava apontada para endereços de roteadores que não existem na rede, fazendo com que fosse impossivel a comunicação com o Roteador 2 e 3. Para solução do problema foi alterado o endereço dos rotedores nas rotas configuradas no Roteador 1, direcionando para o Roteador 2 e 3.
+
+
+Exercício 14 - Erro de camada 3-Rede. Estava faltando o endereço do Gateway nas configurações de IP do Servidor Web, fazendo com que não seja possivel estabelecer uma conexão com os Roteadores 1 e 2. Para resolução do problema foi adicionar o IP do Roteador 3 como default gateway do Servidor Web.
+
+
+Exercicio 15 - Erro de camada 3-Rede. A IP de servidor DNS que estava nos PC's 1 e 2 estava diferente do IP configurado no Servidor DNS, fazendo com que não fosse possível acessar os sites usando o nome de domínio, apenas usando o endereço IP do servidor Web. Para resolução do problema foi alterado o IP do Servidor DNS para "20.0.0.10"
+
+
+Exercício 16 - Erro de camada 3-Rede. No Roteador 3 estava configurado uma ACL HTTP (Lista de Controle de Acesso), que estava bloqueando o acesso ao HTTP, fazendo com que fosse possivel pingar o Servidor Web mas não sendo possivel acessar o site. Para resolução do problema foi acessado a CLI do roteador 3 e executado o comando "no ip access-list extend HTTP".
+
+
+Exercício 17 - Erro de camada 3-Rede. O roteador 2 estava com uma ACL DNS, fazendo com que fosse bloqueado o acesso aos nomes de dominio do Servidor DNS, impossibilitando o acesso ao site usando o nome de domínio. Para resolução do problema foi executado o comando "no ip access-list extended DNS" na CLI do Roteador 2.
+
+
+Exercício 18- Nenhum erro detectado.
+
+
+Exercício 21 - Erro de camada 7-Aplicação. O serviço de DNS no Servidor de DNS estava desligado, impossibilitando o acesso ao site usando o nome de domínio. Para resolução do problema foi ativado o serviço de DNS no servidor DNS.
+
+
+Exercício 22 - Erro de camada 7-Aplicação. O nome de domínio usado na zona do DNS estava escrito de modo errado. Para resolução do problema foi alterado o nome de dominio de "www.melhorpudimdmundo.com.br" para "www.melhorpudimdomundo.com.br".
+
+
+Exercício 23 -
