@@ -1,1 +1,1 @@
-
+VLSM (Variable Lenght Subnet Masking), consiste em dividir uma rede em várias sub-redes, cada uma delas com um tamanho fixo, fazendo com que obtenhamos uma estrutura com três níveis, sendo eles rede, sub-rede e host.
