@@ -1,3 +1,35 @@
+Exercicio 1 - Erro de camada 1-Fisica. Estava falantando 2 cabos um cabo direto que conecta na porta GigabitEthernet 0/0 do Roteador 1 para uma porta GigabitEthernet do Switch 1 e um cabo serial que conecta da porta Serial 0/0/1 do Roteador1 para porta Serial 0/0/1 do Roteador3. Para a topologia funcionar foi conectado um cabo direto na porta GigabitEthernet 0/1 do Switch 1 para porta GigabitEthernet 0/0 do Roteador 1 e um cabo serial na porta Serial 0/0/1 do Roteador 1 para porta Serial 0/0/1 do Roteador 3.
+
+
+Exercicio 2 - Erro de camada 1-Fisica. O cabo conectado entre o Switch 1 e Roteador 1 estava conectado na porta GigabitEthernet 0/1 do Roteador, porém a mesma não estava configurada, a porta com as configurações corretas é a GigabitEthernet 0/0. Para resolução do problema foi desconectado o cabo da porta GigabitEthernet 0/1 do Roteador e conectado na porta GigabitEthernet 0/0.
+
+
+Exercicio 3 - Erro de camada 2-Enlace. As interfaces FastEthernet 0/1 e FastEthernet 0/2 do Switch 2 estavam desativadas, essas interfaces estavam conectadas no PC1 e PC2 e por estarem desativadas não era possivel obter uma conexão entre os dispositivos. Para resolução do problema foi acessado a CLI (Linha de Comando) e executado o comando "no shutdown" nas interfaces para ativá-las.
+
+
+Exercicio 4 - Erro de camada 1-Fisica. O cabo que conecta o Roteador 2 e o Servidor de DNS estava conectado na porta errada, o endereçamento no Servidor de DNS estava configurado na porta FastEthernet 0/0 e o cabo estava conectado na porta FastEthernet 0/1, que não está configurada. Para resolução do problema o cabo foi conectado na porta FastEthernet 0/0 do Servidor de DNS.
+
+
+Exercicio 5 - Erro de camada 2-Enlace. A interface FastEthernet 0/2 que conecta o Switch 2 e o PC2 estava desligada. Para resolução do problema foi acessado a CLI do Switch 2 e executado o comando "no shutdown" nas configurações da interface FastEthernet 0/2.
+
+
+Exercicio 6 - Erro de camada 2-Enlace. O PC1 não estava conseguindo se comunicar com os outros dispositivos pois estava em uma vlan diferente da vlan em que os outros dipositivos estavam, enquanto os dispositivos estavam na vlan 1 o PC1 estava conectado em uma porta que estava configurada na vlan 10. Para resolução do problema foi acessado o CLI do SW2 e usado o comando "switchport access vlan 1" na interface FastEthernet 0/1.
+
+
+Exercicio 7 - Erro de camada 2-Rede. As interfaces serial 0/0/0 e 0/0/1 do Roteador 1 estavam com uma configuração de encapsulamento para o protocolo PPP (Point-to-Ponit Protocol), o que estava impedindo que o roteador 1 se comunicasse com o roteador 2 e 3. Para resolução do problema foi acessado a CLi do Roteador 1 e executado o comando " no encapsulation ppp" nas interfaces serial 0/0/0 e serial 0/0/1.
+
+
+Exercicio 8 - Erro de camada 2-Enlace. A interface GigabitEthernet 0/0 do Roteador 1 estava com uma configuração de encapsulamento com o padrão Dot1q, que estava impedindo o Roteador 1 de se comunicar com o Roteador 2 e 3. Para resolução do problema foi acessado a CLI do Roteador 1 e executado o comando "no encapsulation dotq1" na interfaca GigabitEthernet 0/0.
+
+
+Exercicio 9 - Erro de camda 2-Enlance. As interfaces FastEthernet 0/23 e FastEthernet 0/24 do Switch 1 estavam com a configuração "switchport mode access vlan 99", o que bloqueia o fluxo de pacote entre os dois switchs. Para resolução do problema foi acessado a CLI do Switch 1 e executado o comando "no switchport mode access vlan 99".
+
+
+Exercicio 10 - Erro de camada 2-Enlace. As interfaces Serial 0/0/0 e Serial 0/0/1 estavam com uma configuração de encapsulamento frame relay, o que estava bloqueando a comunicação entre o Roteador 2 e o Server. Para resolução do problema foi executado o comando "no encapsulation frame-relay" nas interfaces Serial 0/0/0 e 0/0/1 ao acessar o CLI do Roteador 2.
+
+Exercicio 11 - Erro de camada 3-Rede. O PC1 estava com o endereço de gateway errado, o que faz com que não seja possivel se comunicar com o Roteador 1. Para resolução do problema foi alterado o endereço do PCI de "10.0.0.253" para "10.0.0.254"
+
+
 Exercício 12- Erro de camada 3-Rede. O endereço de IP do servidor DNS no PC2 estava diferente do endereço que corresponde ao endereço do Servidor DNS o que estava fazendo com que o PC2 não conseguisse se comunicar com o Servidor DNS. Para resolução do problema foi alterado o endereço do Servidor DNS no PC2 para "20.0.0.10".
 
 
