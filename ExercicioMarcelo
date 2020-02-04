@@ -1,0 +1,18 @@
+6.1.1.5 
+
+1 - DNS, FTP, POP3
+2 - O pacote é enviado para o switch e logo após é encaminhado um broadcast para os dispositivos que pertencem a mesma VLAN, sendo a VLAN 10 nesse caso.
+3 - Todos os dispositivos da VLAN 10
+4 - Todos os dispositivos da VLAN 20
+5 - Todos os dispositivos da VLAN 30
+6 - O pacote será descartado pois os dispositivos não pertencem a mesma VLAN.
+7 - Porta 11 e 13.
+8 - Nenhuma. O pacote é descartado.
+9 - Os dominios de colisão são as próprias portas do switch.
+10 - Os dominios de broadcast são as VLANS do switch.
+
+6.1.2.7 - 
+
+1d - Não. Porque o PC1 e o PC6 estão em VLANS diferentes, o que faz com que os dispositvos não se comuniquem.
+1e - O S3 enviou para o PC4 pois esta na mesma VLAN que o PC1.
+2c - 
