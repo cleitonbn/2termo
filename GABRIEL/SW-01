@@ -1,0 +1,61 @@
+enable
+configure terminal
+hostname SW-01
+banner motd "SOMENTE PESSOAL AUTORIZADO"
+enable secret SenhadaEnable
+service password-encryption
+ip domain-name grupo@1.Local
+crypto key generate rsa general-key modulus 1024
+username GabrielSilva privilege 15 secret Grupo@1
+username Admin privilege 15 secret Admin@1
+line console 0
+password SenhadaConsole
+login
+exit
+line vty 0 15
+transport input ssh
+login local
+exec-timeout 10
+exit
+ip default-gateway 172.20.6.129
+vlan 10
+name VLAN10
+exit
+vlan 20
+name VLAN20
+exit
+vlan 30
+name VLAN30
+exit
+vlan 99
+name NATIVA
+exit
+vlan 100
+name GERENCIAMENTO
+exit
+interface fastEthernet 0/24
+switchport mode trunk
+switchport trunk allowed vlan 10,20,30,40,50,60,99,100
+switchport trunk native vlan 99
+no shutdown
+exit
+interface vlan 100
+ip address 172.20.6.129 255.255.255.240
+description INTERFACE DE GERENCIAMENTO
+exit
+interface range fastEthernet 0/1-5
+switchport mode access
+switchport access vlan 10
+description ACESSO VLAN10
+exit
+interface range fastEthernet 0/6-10
+switchport mode access
+switchport access vlan 20
+description ACESSO VLAN20
+exit
+interface range fastEthernet 0/11-15
+switchport mode access
+switchport access vlan 30
+description ACESSO VLAN30
+exit
+do wr
