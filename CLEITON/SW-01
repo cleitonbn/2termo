@@ -1,0 +1,54 @@
+enable
+configure terminal
+hostname SW-GRUPO6
+bannerd motd " ACESSO SOMENTE PARA PESSOAS AUTORIZADAS"
+enable secret Grupo@6
+ip domain-name grupo6.local
+crypto key generate rsa general-keys modulus 1024
+username grupo6 privilege 15 secret Grupo@6
+username administrador privilege 15 secret Administrador@6
+line console 0
+password Grupo@6
+login
+exit
+line vty 0 15
+transport input ssh
+exec-timeout 5
+login local
+exit
+service password-encryption
+ip default-gateway 172.20.7.1
+vlan 40
+name VLAN40
+vlan 50
+name VLAN50
+vlan 60
+name VLAN60
+vlan 100
+name GERENCIAMENTO
+interface range f0/1-5
+switchport mode access
+switchport access vlan 40
+description PORTA MODO ACESSO VLAN 40
+exit
+interface range f0/6-10
+switchport mode access
+switchport access vlan 50
+description PORTA MODO ACESSO VLAN 50
+exit
+interface range f0/11-15
+switchport mode access
+switchport access vlan 60
+description PORTA MODO ACESSO VLAN 60
+exit
+interface f0/24
+switchport mode trunk
+switchport trunk native vlan 99
+switchport trunk allowed vlan 10,20,30,40,50,60,99,100
+exit
+interface vlan 100
+ip address 172.20.7.10 255.255.255.240
+no shutdown
+description GERENCIAMENTO
+exit
+do wr
