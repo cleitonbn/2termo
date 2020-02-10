@@ -1,0 +1,53 @@
+enable
+configure terminal
+hostname RT-01
+banner motd " SOMENTE PESSOAS AUTORIZADAS"
+enable secret SenhadaEnable
+service password-encryption
+ip domain-name grupo@1.Local
+crypto key generate rsa general-key modulus 1024
+username GabrielSilva privilege 15 secret Grupo@1
+username Admin privilege 15 secret Admin@1
+login block-for 180 attempts 3 within 60
+security passwords min-length 8
+line console 0
+password SenhadaConsole
+login
+exit
+line vty 0 15
+transport input ssh
+login local
+exec-timeout 10
+exit
+interface gigabitEthernet 0/0
+ip address 172.20.6.65 255.255.255.252
+no shutdown
+exit
+interface gigabitEthernet 0/1
+no shutdown
+exit
+interface gigabitEthernet 0/1.10
+encapsulation dot1Q 10
+ip address 172.20.6.1 255.255.255.192
+description VLAN10
+exit
+interface gigabitEthernet 0/1.20
+encapsulation dot1Q 20
+ip address 172.20.5.129 255.255.255.128
+description VLAN20
+exit
+interface gigabitEthernet 0/1.30
+encapsulation dot1Q 30
+ip address 172.20.5.1 255.255.255.128
+description VLAN30
+exit
+interface gigabitEthernet 0/1.100
+encapsulation dot1Q 100
+ip address 172.20.6.129 255.255.255.240
+description REDE de EQUIPAMENTOS
+exit
+ip route 172.20.4.0 255.255.255.0 172.20.6.66
+ip route 172.20.0.0 255.255.254.0 172.20.6.66
+ip route 172.20.2.0 255.255.254.0 172.20.6.66
+ip route 172.20.7.0 255.255.255.240 172.20.6.66
+do wr
