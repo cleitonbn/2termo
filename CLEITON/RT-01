@@ -1,0 +1,54 @@
+enable
+configure terminal
+hostname RT-GRUPO6
+banner motd " ACESSO SOMENTE PARA PESSOAS AUTORIZADAS"
+enable secret Grupo@6
+ip domain-name grupo6.local
+crypto key generate rsa general-keys modulus 1024
+username grupo6 privilege 15 secret Grupo@6
+username administrador privilege 15 secret Administrador@6
+line console 0
+password Grupo@6
+login
+exit
+line vty 0 15
+transport input ssh
+exec-timeout 5
+login local
+exit
+security passwords min-length 8
+login block-for 120 attempts 5 within 600
+service password-encryption
+interface g0/0
+ip address 172.20.6.66 255.255.255.252
+no shutdown
+description CONEXÃO COM RT GRUPO 1
+exit
+interface g0/1
+no shutdown
+exit 
+interface g0/1.40
+encapsulation dot1q 40
+ip address 172.20.4.1 255.255.255.0
+description SUBINTERFACE VLAN 40
+exit
+interface g0/1.50
+encapsulation dot1q 50
+ip address 172.20.0.1 255.255.254.0
+description SUBINTERFACE VLAN 50
+exit
+interface g0/1.60
+encapsulation dot1q 60
+ip address 172.20.2.1 255.255.252.0
+description SUBINTERFACE VLAN 50
+exit
+interface g0/1.100
+encapsulation dot1q 100
+ip address 172.20.7.1 255.255.255.240
+description SUBINTERFACE VLAN 100 GERENCIAMENTO
+exit
+ip route 172.20.6.0 255.255.255.192 172.20.6.65
+ip route 172.20.5.128 255.255.255.128 172.20.6.65
+ip route 172.20.5.0 255.255.255.128 172.20.6.65
+ip route 172.20.6.128 255.255.255.240 172.20.6.65
+exit
