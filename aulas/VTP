@@ -1,0 +1,30 @@
+VTP - VLAN TRUNKING PROTOCOL
+
+- Criação e contorle de todas as VLANs que participam do mesmo dominio VTP dos switches.
+- Modos VTP - Servidor VTP, Cliente VTP e VTP Transparente
+- VTP Transparente - não pega nenhuma informação, encaminha VLANs.
+- Servidor VTP - Anunca as informações da VLAn de dominio VTP para outros siwtchs ativos VTP no mesmo dominio. Tem permissão para criar, excluir e renomear VLANS para o domínio.
+- - Cliente VTP - Copia as configurações de VLAN do Servidro VTP.
+
+
+COMANDOS
+
+Configuração servidor
+(config)# vtp mode server
+          vtp domain SENAI
+          vtp password Senha@123
+          
+
+Configurar cliente
+(config)# vtp mode client
+          vtp domain SENAI
+          vtp password Senhai@123
+          
+obs: Cliente precisa usar mesmas configuações do server
+
+
+Show vtp status
+show vtp password
+
+Configuration revision: Aumenta de acordo com o número modificação
+Pruning mode - ameniza trafego da rede
