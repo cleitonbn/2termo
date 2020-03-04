@@ -1,0 +1,27 @@
+CDP - CISCO DISCOVER PROTOCOL         -- Protocolo prioritário da Cisco, funciona melhor.
+ 
+Ajuda a descobrir quem são os vizinhos, diretamento conectado (equipamentos cisco) 
+
+COMANDOS
+
+Habilita CPD globalmente
+(config)# cdp run
+
+Habilita CPD em uma interface especifica
+(config)# interface f0/1
+          cdp enable
+          
+Desabilita CPD em porta especifica
+(config)# interface f0/1
+          no cdp enable
+          
+ Detalhes de quem etá conectado ao seu equipamento
+ # show rdp entry
+ 
+ Mostra se está ou não habilitado CDP na interface
+ # show cpd interface 0/1
+ 
+ Mostra os vizinhos
+ # show cdp neighbours
+          
+ Desvantagem: brecha de segurança.
