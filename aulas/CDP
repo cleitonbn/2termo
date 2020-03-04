@@ -22,6 +22,6 @@ Desabilita CPD em porta especifica
  # show cpd interface 0/1
  
  Mostra os vizinhos
- # show cdp neighbours
+ # show cdp neighbors
           
  Desvantagem: brecha de segurança.
