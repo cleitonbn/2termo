@@ -4,7 +4,7 @@ VTP - VLAN TRUNKING PROTOCOL
 - Modos VTP - Servidor VTP, Cliente VTP e VTP Transparente
 - VTP Transparente - não pega nenhuma informação, encaminha VLANs.
 - Servidor VTP - Anunca as informações da VLAn de dominio VTP para outros siwtchs ativos VTP no mesmo dominio. Tem permissão para criar, excluir e renomear VLANS para o domínio.
-- - Cliente VTP - Copia as configurações de VLAN do Servidro VTP.
+- - Cliente VTP - Copia as configurações de VLAN do Servidro VTP. Consegue apenas visualizar as VLANs.
 
 
 COMANDOS
@@ -28,3 +28,18 @@ show vtp password
 
 Configuration revision: Aumenta de acordo com o número modificação
 Pruning mode - ameniza trafego da rede
+
+
+
+VTP Transparente
+
+- Não participa do VTP exceto para encaminhar anuncios VTp para clientes e servidores VTP.
+- Não altera as VLANs já configuradas.
+- Não tem vinculo com o servidor VTP.
+- Usado quando o switch esta entre um VTP server e um client.
+
+COMANDO
+VTP Transparante
+(config)# vtp mode transparent
+
+Vtp resolver uma descentralização de vlans em um cenário muito grande.
