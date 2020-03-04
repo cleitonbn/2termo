@@ -1,0 +1,65 @@
+ETHERCHANNEL
+
+- Tecnologia de agregação de links - Diversos cabos conectados fisicamente, porém logicamente funciona como um caboo só.
+- Agupamento de interfaces fisicas em uma virtual que aumenta a largura de band dos lunks.
+- Balanceamento de carga entre os link. Dividi a carga, quantidade de tráfego em cada cabo.
+- Trabalha com o STP.
+- PAGP e LAPG - Protocolos necessários para funcionamento do Etherchannel.
+
+PAGP
+
+- Protocolo proprietário da Cisco para formar etherchannel.
+- Trabalha com dois modos
+      -Desirable - inicia negociações do PAGP. - Tentar formar ethernchannel.
+      -Auto - Negocio passivamente, mas não inicia. 
+  
+        D + D = OK   / A + D = OK / A + A = NÃO OK
+        
+       
+LACP
+
+- Protocolo livre. 
+
+
+MODO ON
+
+Porta ficaria estaticamente ativa como parte do Etherchannel.
+
+
+
+REGRAS PARA ETHERCHANNEL FUNCIONAR
+
+- Velocidade - Cabos devem ter a mesma velocidade. (Ou tudo Giga ou Fast por ex)
+- Encapsulamento trunk - Todas as interfaces tem que estar em um encapsulamento. (Acesso ou Trunk)
+- Duplex - Full Duplex ou Half Duplex, estar igual.
+
+DTP - Pode ser mudado.
+
+
+
+
+COMANDOS
+
+
+SW (config)# interface range f0/1-2
+
+  Etherchannel com o PAGP
+    (confif-if-range)#channel-group 1 mode desirable
+    
+Fazer o mesmo para o SW2
+
+
+Configurar com LAGP
+    (confif-if-range)#channel-group 1 mode active
+    
+    
+CHANNEL-GROUP - Estar igual nos dois switchs.
+
+
+
+Comandos para verificar
+
+
+show etherchannel summay
+show etherchannel port-channel
+
