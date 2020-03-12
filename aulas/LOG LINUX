@@ -1,0 +1,36 @@
+PASTA DE LOG
+
+/var/log/
+
+CENTRALIZAR O LOG
+
+apt install syslong-ng
+
+                SERVIDOR - PREPARAR LOG
+
+vim /etc/syslog-ng/syslog-ng.conf
+
+SOURCE ESTÁ EM SISTEMA - CONFIGURAR ORIGEM ABAIXO DO SOURCE SRT
+
+source client {udp();};         - recebdno UDP
+
+DESTINO - LOG FILES
+
+destination "nome da variaveil" { file("/var/log/"nome".log); };
+
+CONFIGURAR FILTRO
+
+filter f_"variavel/nome" { netmas("endereço do cliente"); };
+
+LINKAR 3 ETAPAS - FINAL DO ARQUIVO
+
+log { soucer("variavel/nome") ; filter("nome do filtro"); destination("nome do destino"); };
+
+
+
+                        CLIENTE
+                        
+                        
+ destination "nome" { udp("endereço srv") port (514)); };
+ 
+ alterar destino no final, destination("variavel criada no destsino")
